@@ -6,44 +6,38 @@
 using namespace std;
 
 int main () {
-    int numberInSequence, v;
-    while (true) {
-        cin >> numberInSequence;
-        if (numberInSequence == 0) break;
+    int n = 0;
+    cin >> n;
 
-        if (numberInSequence == 1) {
-            cout << 0 << endl;
-            continue;
-        }
+    string topName = "";
+    int topScore = 0;
+    string topName2 = "";
+    int topScore2 = 0;
 
-        vector <int> current; vector <int> difference;
 
-        for (int i = 0; i < numberInSequence; i++) {
-            cin >> v;
-            current.push_back(v);
-        }
-
-        for (int i = 0; i < numberInSequence - 1; i++) {
-            difference.push_back(current[i + 1] - current[i]);
-        }
-
-        int difSize = difference.size();
-
-        for (int i = 1; i < difSize; i++) {
-            int current = 0; bool works = true;
-            for (int j = 0; j < difSize; j++) {
-                if (difference[j] != difference[current]) {
-                    works = false;
-                    break;
-                }
-                current++;
-                current = current % i;
-            }
-            if (works) {
-                cout << i << endl;
-                break;
-            }
+    for (int i = 0; i < n; i++) {
+        string name = "";
+        int R, S, D;
+        cin >> name >> R >> S >> D;
+        int score = 2 * R + 3 * S + D;
+        if (topName == "") {
+            topName = name;
+            topScore = score;
+        } else if (score > topScore || (score == topScore && name < topName)) {
+            topName2 = topName;
+            topScore2 = topScore;
+            topName = name;
+            topScore = score;
+        } else if (topName2 == "") {
+            topName2 = name;
+            topScore2 = score;
+        } else if (score > topScore2) {
+            topName2 = name;
+            topScore2 = score;
         }
     }
-    return 0;
+    if (topScore == topScore2) {
+        if (topName < topName2) cout << topName << endl << topName2 << endl;
+        else cout << topName2 << endl << topName << endl;
+    } else cout << topName << endl << topName2 << endl;   
 }
