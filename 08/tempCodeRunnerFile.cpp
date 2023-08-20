@@ -1,0 +1,1 @@
+                if (nx < 0 || nx > x-1 || ny < 0 || ny > y-1) continue;
