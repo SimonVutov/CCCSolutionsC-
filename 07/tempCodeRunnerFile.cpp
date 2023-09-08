@@ -1,1 +1,14 @@
-check
+    v.push_back(0);
+    v.push_back(990);
+    v.push_back(1010);
+    v.push_back(1970);
+    v.push_back(2030);
+    v.push_back(2940);
+    v.push_back(3060);
+    v.push_back(3930);
+    v.push_back(4060);
+    v.push_back(4970);
+    v.push_back(5030);
+    v.push_back(5990);
+    v.push_back(6010);
+    v.push_back(7000);
