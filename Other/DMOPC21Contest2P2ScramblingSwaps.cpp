@@ -5,6 +5,9 @@
 using namespace std;
 
 int main () {
+    cin.sync_with_stdio(0);
+    cin.tie(0);
+    
     int n, q;
     cin >> n >> q;
     deque<pair<int, int> > dq; // (first, second) index
@@ -24,8 +27,8 @@ int main () {
             for (int j = 0; j < n; j++) cin >> v[j];
             for (int j = (int)dq.size() - 1; j >= 0; j--)
                 swap(v[dq[j].first-1], v[dq[j].second-1]);
-            for (int j = 0; j < n; j++) cout << v[j] << " ";
-            cout << endl;
+            for (int j = 0; j < n; j++) { cout << v[j]; if (j != n-1) cout << " "; }
+            cout << "\n";
         }
     }
 }

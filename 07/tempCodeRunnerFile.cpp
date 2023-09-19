@@ -1,14 +1,1 @@
-    v.push_back(0);
-    v.push_back(990);
-    v.push_back(1010);
-    v.push_back(1970);
-    v.push_back(2030);
-    v.push_back(2940);
-    v.push_back(3060);
-    v.push_back(3930);
-    v.push_back(4060);
-    v.push_back(4970);
-    v.push_back(5030);
-    v.push_back(5990);
-    v.push_back(6010);
-    v.push_back(7000);
+    vector<int> v = {0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000};

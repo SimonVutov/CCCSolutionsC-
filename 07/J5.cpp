@@ -10,32 +10,42 @@
 #include <utility>
 using namespace std;
 
-int minDist, maxDist;
+vector<vector<int> > dp (7001, vector<int>(7001, -1));
+long minDist, maxDist, n;
 
-int count(vector<int> v, int distTotal, int distCurr) {
-    int total = 0;
-    if (distTotal > 7000) return 1;
+long count(vector<int> v, int totalDist, int curDist) {
+    if (dp[totalDist][curDist] != -1) return dp[totalDist][curDist];
+    long total = 0;
+    if (totalDist >= 7000) return 1; //check if it's a valid path, curDist between minDist and maxDist
 
-    for (int i = 0; i < v.size(); i++) {
-        distTotal += v[i];
-        distCurr = v[i];
-        if (distCurr >= minDist && distCurr <= maxDist) {
-            total += count(v, distTotal, distCurr);
+    for (int i = 0; i < (int)v.size(); i++) {
+        if (v[i] < totalDist) continue;
+        else if (v[i] - curDist >= minDist && v[i] - curDist <= maxDist) {
+            total += count(v, v[i], curDist + v[i] - totalDist);
         }
     }
-
-    if (distTotal >= minDist && distTotal <= maxDist) total++;
-
+    dp[totalDist][curDist] = total;
     return total;
 }
 
 int main () {
-    vector<int> v = {0, 990, 1010, 1970, 2030, 2940, 3060, 3930, 4060, 4970, 5030, 5990, 6010, 7000};
+    vector<int> v;
+    v.push_back(0);
+    v.push_back(990);
+    v.push_back(1010);
+    v.push_back(1970);
+    v.push_back(2030);
+    v.push_back(2940);
+    v.push_back(3060);
+    v.push_back(3930);
+    v.push_back(4060);
+    v.push_back(4970);
+    v.push_back(5030);
+    v.push_back(5990);
+    v.push_back(6010);
+    v.push_back(7000);
 
-    cin >> minDist >> maxDist;
-
-    int n;
-    cin >> n;
+    cin >> minDist >> maxDist >> n;
 
     for (int i = 0; i < n; i++) {
         int x;
@@ -44,6 +54,5 @@ int main () {
     }
 
     sort(v.begin(), v.end());
-
     cout << count(v, 0, 0) << endl;
 }
