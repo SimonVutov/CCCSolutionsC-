@@ -6,7 +6,7 @@
 #include <map>
 #include <set>
 #include <iomanip>
-using namespace std;
+using namespace std; //doesnt work, idk why
 
 string toPost(string pre) {
     if (pre.length() == 1) return pre;
@@ -29,8 +29,7 @@ int main() {
 
     for (int i = 0; i < (int)v.size(); i++) {
         for (int j = 0; j < (int)v[i].length(); j++) {
-            cout << v[i][j];
-            if (j != (int)v[i].length() - 1) cout << " ";
+            cout << v[i][j] << " ";
         }
         cout << endl;
     }
