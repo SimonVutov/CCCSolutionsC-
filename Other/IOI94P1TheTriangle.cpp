@@ -1,17 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <stack>
-#include <algorithm>
-#include <string>
-#include <cmath>
-#include <iomanip>
-#include <cctype>
 using namespace std;
 
-int maxPath(int row, int col, vector<vector<int> > &triangle, int sum = 0) {
-    if (row == (int)triangle.size() - 1) return sum + triangle[row][col];
-    return max(maxPath(row + 1, col, triangle, sum + triangle[row][col]), maxPath(row + 1, col + 1, triangle, sum + triangle[row][col]));
-}
+vector<vector<int> > dp(100, vector<int>(100, -1));
+
+int maxPath(int row, int col, vector<vector<int> >& triangle) {
+    if (dp[row][col] != -1) return dp[row][col];
+    if (row == (int)triangle.size() - 1) return dp[row][col] = triangle[row][col];
+    return dp[row][col] = triangle[row][col] + max(maxPath(row + 1, col, triangle), maxPath(row + 1, col + 1, triangle));
+} //this position + the max of left and right paths
 
 int main() {
     int levels;
