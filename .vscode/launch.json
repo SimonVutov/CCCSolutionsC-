@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/simonvutov/Documents/GitHub/CCCSolutionsC-/Other",
-      "program": "/Users/simonvutov/Documents/GitHub/CCCSolutionsC-/Other/build/Debug/outDebug"
+      "cwd": "/Users/simonvutov/Downloads/CCCSolutionsInCpp",
+      "program": "/Users/simonvutov/Downloads/CCCSolutionsInCpp/build/Debug/outDebug"
     }
   ]
 }
