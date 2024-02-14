@@ -39,7 +39,7 @@ int main() {
         cin >> cur;
 
         int at = 0;
-        while (at < (int)v.size() && v[a] > cur) at++;
+        while (at < (int)v.size() && v[at] > cur) at++;
         v.insert(v.begin() + at, cur);
 
         sum += at + 1;

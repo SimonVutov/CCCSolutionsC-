@@ -7,11 +7,21 @@
 using namespace std;
 
 int main() {
-    long long n;
+    int n;
     cin >> n;
-    vector<long long> arr(n);
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
+    }
+
+    if (n == 1) {
+        cout << max((long long)0, (long long)arr[0]) << endl;
+        return 0;
+    }
+
+    if (n == 2) {
+        cout << max((long long)0, (long long)max(arr[0], arr[1])) << endl;
+        return 0;
     }
 
     vector<long long> dp(n);
